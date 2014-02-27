@@ -1,6 +1,11 @@
 templatef = ARGV[0]
 definition_file = ARGV[1]
 
+unless definition_file
+  definition_file = templatef.sub(/\.sh$/, ".conf")
+  STDERR.puts "definition file: #{definition_file}"
+end
+
 template = File.open(templatef).read
 
 n = 0

@@ -10,6 +10,7 @@ $fastaf = ARGV[0]
 $num_entries = ARGV[1].to_i
 $outdir = ARGV[2]
 
+
 def print_help
   puts "Usage:"
   puts "  #{File.basename($0)}  fasta_file  num_entries_per_file  [target_dir]"
@@ -17,14 +18,18 @@ def print_help
   exit
 end
 
-unless ARGV.size == 3
+unless (ARGV.size == 3 || ARGV.size == 2)
   print_help
 end
 
+unless $outdir
+  $outdir = "fasta_split"
+end
 if File.exists?($outdir)
   raise "\nERROR: Directory, #{$outdir}, already exists."
 else
   Dir.mkdir($outdir)
+  STDERR.puts "outdir: #{$outdir}"
 end
 
 container = []
