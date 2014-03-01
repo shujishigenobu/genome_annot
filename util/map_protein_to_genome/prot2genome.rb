@@ -5,7 +5,7 @@ genome = ARGV[1] # should be formated as blastdb (-parse_seqids option required 
  
 ## conf
 evalue = 1.0e-8 # in BLAST search
-ncpu = 4 # in BLAST search
+ncpu = 1 # in BLAST search
 
 ## step 0: read query
  
