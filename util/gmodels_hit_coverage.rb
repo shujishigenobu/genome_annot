@@ -6,6 +6,7 @@ include Bio
 
 ref_proteome_file = (ARGV[0] || "/home/DB/public/processed/OrthoDB/OrthoDB7/blastdb/DMELA.Drosophila_melanogaster.fas")
 blast_res_file = (ARGV[1] || "BLAST_DMELA/RsGM3.evm.out.combined.pep.vs.DMELA.Drosophila_melanogaster.fas.blastp.fmt7c.txt")
+# query_file = ARGV[2] # query fasta
 
 ## print header of report
 puts "#=== HIT COVERAGE STATISTICS ==="
@@ -16,7 +17,8 @@ puts "# user:   #{ENV['USER']}@#{ENV['HOSTNAME']}"
 puts "#"
 puts "# Reference proteome: #{ref_proteome_file}"
 puts "# BLAST result: #{blast_res_file}"
-
+puts "#"
+puts "#= Database side statistics "
 
 ## inspect reference proteome fasta
 
@@ -38,6 +40,7 @@ q_curr =nil
 s_curr = nil
 
 i = 0
+queries_with_hits = []
 File.open(blast_res_file).each do |l|
 #  puts l
   next if /^\#/.match(l)
@@ -48,6 +51,7 @@ File.open(blast_res_file).each do |l|
     blast_res_top[query] = []
     q_curr = query
     s_curr = subject
+    queries_with_hits << query
   end
   if query == q_curr && subject == s_curr
     blast_res_top[query] << a
@@ -113,3 +117,23 @@ num_hit_genes = data.keys.size
 
 puts sprintf("num of hits: %d (%.1f %%)", num_hit_genes, num_hit_genes / refp_ids.size.to_f * 100) 
 puts sprintf("hit coverage (aa): %d (%.1f %%)", total_hit_cov, total_hit_cov / refp_total.to_f * 100)
+
+
+## Parse blast results again
+##  to inspect query side information
+##  blast output should be formated in format7
+
+
+queries = []
+File.open(blast_res_file).each do |l|
+  
+  if m = /^\# Query:/.match(l)
+    qname = m.post_match.strip.split[0]
+    queries << qname
+  end
+end
+
+puts "#"
+puts "#= Query side statistics "
+puts sprintf("num of queries: %d", queries.size)
+puts sprintf("num of queries with hits: %d (%.1f %%)", queries_with_hits.size, queries_with_hits.size / queries.size.to_f * 100)
