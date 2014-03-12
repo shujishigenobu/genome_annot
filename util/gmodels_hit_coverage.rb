@@ -4,9 +4,22 @@ include Bio
 #require 'pp'
 #alias :p :pp
 
-ref_proteome_file = (ARGV[0] || "/home/DB/public/processed/OrthoDB/OrthoDB7/blastdb/DMELA.Drosophila_melanogaster.fas")
-blast_res_file = (ARGV[1] || "BLAST_DMELA/RsGM3.evm.out.combined.pep.vs.DMELA.Drosophila_melanogaster.fas.blastp.fmt7c.txt")
+ref_proteome_file = ARGV[0]
+# || "/home/DB/public/processed/OrthoDB/OrthoDB7/blastdb/DMELA.Drosophila_melanogaster.fas")
+blast_res_file = ARGV[1]
+# || "BLAST_DMELA/RsGM3.evm.out.combined.pep.vs.DMELA.Drosophila_melanogaster.fas.blastp.fmt7c.txt")
 # query_file = ARGV[2] # query fasta
+
+if ARGV[0] == "-h" || ARGV.size != 2
+  puts "Usage:
+ruby gmodels_hit_coverage.rb reference_fasta blast_result
+
+  reference_fasta (fasta format)
+  blast_result (format 7)
+"
+  exit
+end
+
 
 ## print header of report
 puts "#=== HIT COVERAGE STATISTICS ==="
