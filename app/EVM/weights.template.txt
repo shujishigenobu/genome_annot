@@ -1,0 +1,16 @@
+PROTEIN			exonerate:p2g:AMELA	4
+PROTEIN			exonerate:p2g:APISU	4
+PROTEIN			exonerate:p2g:DMELA	4
+PROTEIN			exonerate:p2g:DPULE	4
+PROTEIN			exonerate:p2g:PHUMA	4
+PROTEIN			exonerate:p2g:TCAST	4
+ABINITIO_PREDICTION	exonerate:est2genome:OkORF:Score3	8
+ABINITIO_PREDICTION	exonerate:est2genome:OkORF:Score2	4
+ABINITIO_PREDICTION	exonerate:est2genome:OkORF:Score1	3
+ABINITIO_PREDICTION	exonerate:est2genome:OkORF:Score0	1
+PROTEIN			exonerate:p2g:CforTrinityORF140222	4
+PROTEIN			exonerate:p2g:NkosTrinityORF140222	4
+PROTEIN			exonerate:p2g:NtakTrinityORF121218	4
+PROTEIN			exonerate:p2g:PameTrinityORF		4
+PROTEIN			exonerate:p2g:ZnevTrinityORF120612	4
+
