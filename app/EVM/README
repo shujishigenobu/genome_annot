@@ -1,0 +1,6 @@
+FILES
+====
+
+# postfix_evm_redundancy.rb
+
+For unknown reasons, EVM produced same genemodels redundantly. This script fixed this problem. Redundant models are removed.
