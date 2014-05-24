@@ -31,6 +31,8 @@ else
   Dir.mkdir($outdir)
   STDERR.puts "outdir: #{$outdir}"
 end
+$listf = "#{$outdir}.list"
+listf = File.open($listf, "w")
 
 container = []
 i = 0
@@ -41,11 +43,19 @@ FlatFile.open(FastaFormat, ARGV[0]).each do |fas|
     outpath = $outdir + "/" + outf
     STDERR.puts [outpath, container.size].join("\t")
     File.open(outpath, "w"){|o| o.puts container}
+    listf.puts outpath
     container = []
   end
 end
 
+
+
+
 outf = File.basename($fastaf) + "_#{i+=1}.fasta"
+
 outpath = $outdir + "/" + outf
-File.open(outpath, "w"){|o| o.puts container}
+File.open(outpath, "w"){|o|  o.puts container}
+listf.puts outpath
+
 STDERR.puts [outpath, container.size].join("\t")
+listf.close
