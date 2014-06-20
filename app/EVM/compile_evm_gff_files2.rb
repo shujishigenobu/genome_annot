@@ -14,11 +14,10 @@ gffdata = {}
 File.open(combined).each do |l|
   a = l.chomp.split(/\t/)
   next if a.size == 0
-  if gffdata.has_key?(a[0])
-    gffdata[a[0]] << a
-  else
+  unless gffdata.has_key?(a[0])
     gffdata[a[0]] = []
   end
+  gffdata[a[0]] << a
 end
 
 scaffolds.each do |scaff|
