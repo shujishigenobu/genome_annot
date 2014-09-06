@@ -1,7 +1,7 @@
 require 'tempfile'
  
-query = ARGV[0] # a single fasta (est)
-genome = "../../Rspe02.final.assembly.fasta" # should be blast formated
+query = ARGV[0]  # a single fasta (est)
+genome = ARGV[1] # should be formated as blastdb (-parse_seids option required)
  
 ## step 0: read query
  
