@@ -35,6 +35,7 @@ DATABASES = {
 #  "Ecol" => "/DB/KEGG/blastdb/e.coli.pep",
 }
 
+KEY_ORDER = %w{RsGM8 Znev Mnat Ofor Cpun Pame Bger Dmel Agam Phum Rpro Isca Tcas Apis Nvit Cflo Bmor Dpul Cele Hsap}
 
 
 $evalue_exec = 1.0e-4
@@ -55,13 +56,29 @@ DATABASES.each do |sp, path|
   cmd << " >#{outf}"
   STDERR.puts cmd
   result_files << outf
-  system cmd
+#  system cmd
 end
 
 
 ### generate summary report
-#p result_files
-result_files.sort.each do |f|
+
+hmmtxt = File.open(query_domainf).read
+hmmname = /^NAME\s+(\S+)$/.match(hmmtxt)[1]
+hmmacc =  /^ACC\s+(\S+)$/.match(hmmtxt)[1]
+
+puts "# HMM_NAME: #{hmmname}"
+puts "# HMM_ACC:  #{hmmacc}"
+puts "#"
+puts "# " + %w{species hmm #genes #domains  hits}.join("\t")
+
+sp2resultf = {}
+result_files.each do |f|
+  sp = /\.hmm\.(.+)\.txt/.match(f)[1]
+  sp2resultf[sp] = f
+end
+
+KEY_ORDER.each do |k|
+  f = sp2resultf[k]
   m = /\.hmm\.(.+)\.txt/.match(f)
   sp = m[1]
   motif = m.pre_match
