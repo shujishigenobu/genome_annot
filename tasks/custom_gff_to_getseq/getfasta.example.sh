@@ -1,0 +1,1 @@
+bedtools getfasta -fi Rspe04_scaffold_107.fa -bed build_RS002624v2.edit.bed12 -s -fo build_RS002624v2.bed12.nuc.fa -split
