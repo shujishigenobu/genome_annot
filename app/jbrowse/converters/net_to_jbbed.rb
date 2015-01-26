@@ -1,3 +1,9 @@
+TOPLEVEL_FILL_ONLY = false
+
+## TOPLEVEL_FILLONLY: If it is true, only top level 'fill' entries are reported and nested structure, 
+##                    which is indented more deeply, is ignored.
+
+
 #(input example)
 #net GL349686 752019
 # fill 2654 5894 ctg7180000032958 + 4586 5881 id 32383 score 486441 ali 5419 qDup 0 type top
@@ -8,8 +14,12 @@
 
 ## Note: 0 start coordinate
 
-## ToDo: Current script process only top level 'fill' entries. Nested structure, which is indented more deeply, is ignored. 
-#        This should be improved in the future.
+
+if TOPLEVEL_FILL_ONLY
+  r = /^ fill/
+else
+  r = /^\s+fill/
+end
 
 chr = nil
 ARGF.each do |l|
@@ -17,7 +27,7 @@ ARGF.each do |l|
     next
   elsif m = /^net/.match(l)
     chr = l.split[1]
-  elsif m = /^ fill/.match(l)
+  elsif m = r.match(l)
     a = l.strip.split
     from = a[1].to_i
     size = a[2].to_i
