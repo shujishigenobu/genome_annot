@@ -1,5 +1,6 @@
 qlistf = "Rspe.list"   #query
 rlistf = "Znev.list"   #reference
+qname= "medium,cat@cats1,cat@cats2"
  
 qseqdir = "Rspe"
 rseqdir = "Znev"
@@ -17,8 +18,8 @@ qcontigs.each do |c1|
   scriptf = "run_lastz_#{c1}.sh"
   #  Dir.mkdir("#{outdir_base}/#{c1}")
   o = File.open(scriptf, "w")
-  o.puts "#!/bin/sh"
-  o.puts "#$ -q medium,cat@cats1,cat@cats2"
+  o.puts "\#\!/bin/sh"
+  o.puts "\#\$ -q #{qname}"
   
   rcontigs.each do |c2|
 #    p [c1, c2]
