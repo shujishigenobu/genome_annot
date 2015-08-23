@@ -9,7 +9,7 @@ include Bio
 $fastaf = ARGV[0]
 $num_entries = ARGV[1].to_i
 $outdir = ARGV[2]
-
+$header = ARGV[3]
 
 def print_help
   puts "Usage:"
@@ -18,7 +18,7 @@ def print_help
   exit
 end
 
-unless (ARGV.size == 3 || ARGV.size == 2)
+unless (ARGV.size == 3 || ARGV.size == 2 || ARGV.size == 4)
   print_help
 end
 
@@ -33,6 +33,7 @@ else
 end
 $listf = "#{$outdir}.list"
 listf = File.open($listf, "w")
+listf.puts $header if $header
 
 container = []
 i = 0
