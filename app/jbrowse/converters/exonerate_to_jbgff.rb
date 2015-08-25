@@ -1,8 +1,6 @@
-exonerate_out = ARGV[0]
-
 name = nil
 target = nil
-File.open(exonerate_out).each do |l|
+ARGF.each do |l|
   
   if m = /\s+Query:\s/.match(l)
     name = m.post_match.chomp.split[0]

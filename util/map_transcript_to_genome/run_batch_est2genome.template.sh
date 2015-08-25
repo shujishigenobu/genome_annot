@@ -1,2 +1,4 @@
-GENOME=../Om2.assembly.fasta
-ruby batch_est_mapping.rb %FASTA% $GENOME
+GENOME=%GENOME%
+QUERY=%FASTA%
+SCRIPTDIR=%SCRIPTDIR%
+ruby $SCRIPTDIR/batch_est_mapping.rb $QUERY $GENOME $SCRIPTDIR
