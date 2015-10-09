@@ -1,4 +1,4 @@
-GENOME=Tdic_v3.fa
+GENOME=genome.fa
 WEIGHT_FILE=`pwd`/weights.txt
 OUT1=commands.fwd.list
 OUT2=commands.rev.list
