@@ -6,7 +6,7 @@ ref_gene, pred_gene = nil
 
 data = []
 
-ARGF.each do |l|
+File.open(ARGV[0]).each do |l|
 #  p next_is_ref
   if m = /\|---- Locus:/.match(l)
     seqid, range = nil
@@ -52,6 +52,11 @@ ARGF.each do |l|
   end
 end
 
+## output
+puts "# source: #{ARGV[0]}"
+puts "# date:   #{Time.now}"
+puts "#"
+puts "# " + %w{seqid range ref_gene pred_gene}.join("\t")
 data.each do |d|
   outdata = [d[:seqid], d[:range], d[:ref_gene].join(","), d[:pred_gene].join(",")]
   puts outdata.join("\t")
