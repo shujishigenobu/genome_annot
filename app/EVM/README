@@ -4,3 +4,50 @@ FILES
 # postfix_evm_redundancy.rb
 
 For unknown reasons, EVM produced same genemodels redundantly. This script fixed this problem. Redundant models are removed.
+
+
+# A guideline for gene modeling using this pipeline (pipeline-2 version)
+
+## 1. Prep
+
+1.1 scripts
+
+Copy necessary scripts from this repo.
+
+1.2 genome
+
+Rename or symbolic link as genome.fa
+
+1.3 evidence file
+
+Create 2 directories: Evidence_source and Evidence_file
+
+evidence source files are copy to ''Evidence_source'' dir (in the original format). The source gff files in original format are converted to EVM compatible gff and saved in ''Evidence_file''. Suggested file name in ''Eidence_file'':
+
+* Dnox.Dcit.p2g.EVMp.gff 
+** p2g=protein to genome mapping; e2g=est to genome mapping using exonerate
+** EVPp=protein; EVPg=GenePrediction; EVMt=transcript; EVMa:ab initio prediction
+
+gff converters are included in this repo. 
+
+1.4 evidence file concatenation
+
+* gene_predictions.gff3
+* transcript_alignments.gff3
+* protein_alignments.gff3
+
+## 2. Weight matrix
+
+weights.txt
+
+## 3. Run EVM
+
+1. run_evm_step1_partitioning.sh
+2. run_evm_step2_generate_commands.sh
+3. split command list for batch jobs
+4. batch run
+5. run_evm_step3F_recombine_outputs.sh, run_evm_step3R_recombine_outputs.sh
+6. run_evm_step4_merge_fwd_rev_gff.sh
+7. run_evm_step5_gff3_to_sequences.sh
+
+
