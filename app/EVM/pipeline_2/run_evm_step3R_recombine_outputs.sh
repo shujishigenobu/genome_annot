@@ -1,5 +1,5 @@
 GENOME=genome.fa
-EVMDIR=/home/shige/Projects/Aphid/Analysis/150804-Oulm_genome_annot/150811-EVM/EVidenceModeler
+EVMDIR=~/GitHub/EVidenceModeler
 PARTITION_FILE=partitions_list.out
 
 

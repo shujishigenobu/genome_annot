@@ -1,7 +1,7 @@
-GENOME=Tdic_v3.fa
-GFF=Tdic_v3.EVM2.gff3
-OUTBASE=Tdic_v3.EVM2
-EVMDIR=/home/shige/Projects/Aphid/Analysis/150804-Oulm_genome_annot/150811-EVM/EVidenceModeler
+GENOME=genome.fa
+GFF=Dnox.EVM2.gff3
+OUTBASE=Dnox.EVM2
+EVMDIR=~/GitHub/EVidenceModeler
 
 $EVMDIR/EvmUtils/gff3_file_to_proteins.pl \
   $GFF    \

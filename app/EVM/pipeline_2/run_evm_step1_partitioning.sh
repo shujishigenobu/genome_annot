@@ -1,5 +1,8 @@
 GENOME=genome.fa
-~/bio/Applications/EVM_r2012-06-25/EvmUtils/partition_EVM_inputs.pl \
+
+EVMHOME=~/GitHub/EVidenceModeler/
+
+$EVMHOME/EvmUtils/partition_EVM_inputs.pl \
   --genome $GENOME \
   --gene_predictions gene_predictions.gff3 \
   --transcript_alignments transcript_alignments.gff3 \

@@ -3,7 +3,9 @@ WEIGHT_FILE=`pwd`/weights.txt
 OUT1=commands.fwd.list
 OUT2=commands.rev.list
 
-/home/shige/Projects/Aphid/Analysis/150804-Oulm_genome_annot/150811-EVM/EVidenceModeler/EvmUtils/write_EVM_commands.pl \
+EVMHOME=~/GitHub/EVidenceModeler/
+
+$EVMHOME/EvmUtils/write_EVM_commands.pl \
  --genome $GENOME \
  --weights $WEIGHT_FILE \
  --gene_predictions gene_predictions.gff3 \
@@ -16,7 +18,7 @@ OUT2=commands.rev.list
  --partitions partitions_list.out >  $OUT1
 
 
-/home/shige/Projects/Aphid/Analysis/150804-Oulm_genome_annot/150811-EVM/EVidenceModeler/EvmUtils/write_EVM_\
+$EVMHOME/EvmUtils/write_EVM_\
 commands.pl \
  --genome $GENOME \
  --weights $WEIGHT_FILE \
@@ -30,5 +32,3 @@ commands.pl \
  --partitions partitions_list.out >  $OUT2
 
 
-#--forwardStrandOnly
-#--reverseStrandOnly
