@@ -20,6 +20,9 @@ File.open(source).each do |l|
   end
 end
 
+STDERR.puts "no. genes: #{genes.size}"
+STDERR.puts "no. transcripts: #{transcripts.size}"
+
 gene2transcripts = {}
 transcripts.each do |t, g|
   unless gene2transcripts.has_key?(g)
