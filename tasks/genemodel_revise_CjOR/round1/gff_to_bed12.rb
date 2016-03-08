@@ -31,7 +31,7 @@ cds_gff_lines.each do |l|
 
 end
 
-fragments
+fragments = fragments.sort{|a, b| a[0] <=> b[0]}
 starts = fragments.map{|f| f[0]}
 ends   = fragments.map{|f| f[1]}
 
