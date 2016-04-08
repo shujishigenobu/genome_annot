@@ -1,8 +1,12 @@
-ARGF.each do |l|
+inputf = ARGV[0]
+source = ARGV[1]
+
+File.open(inputf).each do |l|
   a = l.chomp.split(/\t/)
   if a[2] == "match"
     id = /^ID\=(.+)?/.match(a[8])[1]
     b = a.dup
+    b[1] = source if source
     b[2] = "gene"
     b[8] = "ID=#{id};"
     puts b.join("\t")
@@ -16,6 +20,7 @@ ARGF.each do |l|
     tid = "#{gid}.t"
     id = "#{gid}.cds"
     d = a.dup
+    d[1] = source if source
     d[2] = "CDS"
     d[8] = "ID=#{id}; Parent=#{tid}"
     puts d.join("\t")
