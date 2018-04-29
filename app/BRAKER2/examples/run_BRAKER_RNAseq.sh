@@ -5,7 +5,7 @@
 
 cd $PBS_O_WORKDIR
 
-GENOME=hormaphis_cornu_PoQx8_flt180427.fasta
+GENOME=genome.fasta
 
 BAM=merged.bam
 #BAM: hisat2 mapping => sort by samtools => merge by samtools => merged.bam
