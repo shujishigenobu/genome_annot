@@ -1,0 +1,5 @@
+#Entry	Feature	Location	Qualifier	Value
+%ENTRY%	source	%RANGE%	organism	Aquatica lateralis
+			mol_type	genomic DNA
+			strain	Ikeya-Y90
+			sex	female

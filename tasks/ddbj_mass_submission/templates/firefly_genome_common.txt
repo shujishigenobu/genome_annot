@@ -1,0 +1,23 @@
+#Entry	Feature	Location	Qualifier	Value
+COMMON	SUBMITTER		ab_name	"Shigenobu,S."
+			ab_name	"Oba,Y."
+			ab_name	"Bessho-Uehara,M."
+			ab_name	"Yamaguchi,K."
+			contact	Shuji Shigenobu
+			email	shige@nibb.ac.jp
+			phone	81-564-55-7670
+			institute	National Institute for Basic Biology
+			department	NIBB Core Research Facilities
+			country	Japan
+			state	Aichi
+			city	Okazaki
+			street	"Nishigonaka 38, Myodaiji"
+			zip	444-8585
+	REFERENCE		title	"Draft genome assembly of a Japanese firefly, Aquatica lateralis (Heike-botaru)"
+			ab_name	"Shigenobu,S."
+			ab_name	"Oba,Y."
+			ab_name	"Bessho-Uehara,M."
+			ab_name	"Yamaguchi,K."
+			year	2018
+			status	Unpublished
+	COMMENT		line	URL: http://www.fireflybase.org/firefly_data.html
